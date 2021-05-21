@@ -7,7 +7,7 @@ public class empWageComputation {
     private static final int NUM_OF_WORKING_DAYS = 20;
     private static final int MAX_HRS_IN_MONTH = 100;
 
-    public static void main(String args[]){
+    private static void computeEmpWage(int WAGE_PER_HR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH) {
         int empHrs = 0;
         int empWage = 0;
         int totalEmpWage = 0;
@@ -35,5 +35,14 @@ public class empWageComputation {
         totalEmpWage = totalEmpHrs * WAGE_PER_HR;
         System.out.println("Total Emp Hrs is:"+totalEmpHrs);
         System.out.println("Total Emp Wage is :"+totalEmpWage);
+
     }
+
+    public static void main(String args[]){
+
+        computeEmpWage(WAGE_PER_HR,NUM_OF_WORKING_DAYS,MAX_HRS_IN_MONTH);
+
+    }
+
+
 }
