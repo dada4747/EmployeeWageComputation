@@ -5,7 +5,7 @@ public class Company {
     public static int wagePerHrs ;
     public static int numOfWorkinDays ;
     public static int maxHrsPerMonth ;
-
+   // private int totalEmpWage;
     public Company(String company, int wagePerHrs, int numOfWorkinDays, int maxHrsPerMonth) {
         this.company = company;
         this.wagePerHrs = wagePerHrs;
@@ -14,5 +14,8 @@ public class Company {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Company: " + company + "\n Total Wage Of Employee= " + empWageComputation.computEmpWage();
+    }
 }
