@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class EmpWageComputationImpl implements EmpWageInterface {
     public int numOfCompany = 0;
+    //Instead of array used arraylist
     private ArrayList<Company> companyAraay;
 
     public EmpWageComputationImpl() {
