@@ -1,21 +1,28 @@
 package com.bridgelabz;
 
 public class Company {
-    public static String company ;
-    public static int wagePerHrs ;
-    public static int numOfWorkinDays ;
-    public static int maxHrsPerMonth ;
-   // private int totalEmpWage;
+    public String company ;
+    public int wagePerHrs ;
+    public int numOfWorkinDays ;
+    public int maxHrsPerMonth ;
+    public int totalEmpWage;
+
     public Company(String company, int wagePerHrs, int numOfWorkinDays, int maxHrsPerMonth) {
         this.company = company;
         this.wagePerHrs = wagePerHrs;
         this.numOfWorkinDays = numOfWorkinDays;
         this.maxHrsPerMonth = maxHrsPerMonth;
+    }
 
+    public void setTotalEmpWage(int totalEmpWage) {
+        this.totalEmpWage = totalEmpWage;
     }
 
     @Override
     public String toString() {
-        return "Company: " + company + "\n Total Wage Of Employee= " + empWageComputation.computEmpWage();
+        return  "company Name ='" + company + '\'' +
+                ", \nTotal Emploee Wage =" + totalEmpWage +
+                 "\n---------------------------------------------------------------------" ;
     }
+
 }
