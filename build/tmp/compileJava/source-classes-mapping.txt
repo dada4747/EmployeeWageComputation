@@ -1,6 +1,8 @@
-com/bridgelabz/EmpWageComputationMain.java
- com.bridgelabz.EmpWageComputationMain
+com/bridgelabz/EmpWageInterface.java
+ com.bridgelabz.EmpWageInterface
 com/bridgelabz/Company.java
  com.bridgelabz.Company
 com/bridgelabz/EmpWageComputationImpl.java
  com.bridgelabz.EmpWageComputationImpl
+com/bridgelabz/EmpWageComputationMain.java
+ com.bridgelabz.EmpWageComputationMain

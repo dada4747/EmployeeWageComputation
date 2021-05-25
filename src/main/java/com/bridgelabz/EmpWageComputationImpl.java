@@ -1,30 +1,28 @@
 package com.bridgelabz;
 
-public class EmpWageComputationImpl {
-     private static final int IS_PART_TIME = 1;
-    private static final int IS_FULL_TIME = 2;
-    public int numOfCompany = 0;
-    private Company[] companyAraay;
+import java.util.ArrayList;
 
-    public EmpWageComputationImpl(){
-        companyAraay = new Company[5];
+public class EmpWageComputationImpl implements EmpWageInterface {
+    public int numOfCompany = 0;
+    private ArrayList<Company> companyAraay;
+
+    public EmpWageComputationImpl() {
+        companyAraay = new ArrayList<Company>();
     }
 
-    void addCompany(String company, int wagePerHrs, int numOfWorkinDays, int maxHrsPerMonth){
-        companyAraay[numOfCompany] = new Company(company, wagePerHrs, numOfWorkinDays, maxHrsPerMonth);
+    public void addCompany(String company, int wagePerHrs, int numOfWorkinDays, int maxHrsPerMonth) {
+        companyAraay.add(numOfCompany, new Company(company, wagePerHrs, numOfWorkinDays, maxHrsPerMonth));
         numOfCompany++;
     }
 
-    void computEmpWage(){
-        for (int i = 0; i < numOfCompany; i++){
-            companyAraay[i].setTotalEmpWage(this.computEmpWage(companyAraay[i]));
-            System.out.println(companyAraay[i]);
+    public void computEmpWage() {
+        for (int i = 0; i < numOfCompany; i++) {
+            companyAraay.get(i).setTotalEmpWage(this.computEmpWage(companyAraay.get(i)));
+            System.out.println(companyAraay.get(i));
         }
-
     }
 
-    public static int computEmpWage(Company company ){
-
+    public int computEmpWage(Company company ){
         int empHrs = 0;
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;

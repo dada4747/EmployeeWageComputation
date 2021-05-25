@@ -10,7 +10,6 @@ public class EmpWageComputationMain {
         System.out.println("--------------------------------------------------------------------");
         empWageComputation.addCompany("Barclays", 10, 4,100);
         empWageComputation.computEmpWage();
-        System.out.println("--------------------------------------------------------------------");
     }
 
 
