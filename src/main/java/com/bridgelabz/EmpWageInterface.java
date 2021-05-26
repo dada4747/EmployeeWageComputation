@@ -6,4 +6,5 @@ public interface EmpWageInterface {
     void addCompanyEmployee(String company, int empRatePerHour, int workingDaysInMonth, int maximunWorkHours);
     void getCalculationDailyWage();
     int getMonthlyWage(Company company);
+    void wagePerCompany();
 }

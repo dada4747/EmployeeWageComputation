@@ -1,13 +1,17 @@
 package com.bridgelabz;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class EmpWageComputationImpl implements EmpWageInterface {
     public static int empHours = 0;
-    private ArrayList<Company> companyArray;
     private int numOfCompany = 0;
+    private ArrayList<Company> companyArray;
+    private Map<String, Integer> companyWageMap;
     //Constructor Of Class
     public EmpWageComputationImpl(){
         companyArray = new ArrayList<Company>();
+        companyWageMap = new HashMap<>();
+        wagePerCompany();
     }
     //Method for add companies
     public void addCompanyEmployee(String company, int empRatePerHour, int workingDaysInMonth, int maximunWorkHours){
@@ -47,21 +51,32 @@ public class EmpWageComputationImpl implements EmpWageInterface {
         }
         company.storeDailyWage(dailyWageArray);
         company.getTotalWage(totalSalary);
+        companyWageMap.put(company.company, totalSalary);
         return 0;
     }
-
+    //method for get total wage by company
+    public void wagePerCompany(){
+        Set<Entry<String, Integer>> set = companyWageMap.entrySet();
+        Iterator itr = set.iterator();
+        while(itr.hasNext())
+        {
+            Map.Entry entry = (Map.Entry)itr.next();
+            System.out.println("Company:"+entry.getKey() + ":" + entry.getValue());
+        }
+    }
     //method for clculate the result and get the output
-    public void getCalculationDailyWage(){
-        for (int i = 0; i < numOfCompany; i++){
+    public void getCalculationDailyWage() {
+        for (int i = 0; i < numOfCompany; i++) {
             getMonthlyWage(companyArray.get(i));    //call getMonthlyWage method with passing element from companyArray
             System.out.println("Company: " + companyArray.get(i).company + " Employee Wage :" + companyArray.get(i).totalSalary);
             int oldWage = 0;
             System.out.println("Day\t\t\tWage\t\t\tTotal Wage");
-            for (int j = 0; j < companyArray.get(i).dailyWage.size(); j++){
-                System.out.println("Day: " + j + "\t\t"+(companyArray.get(i).dailyWage.get(j)-oldWage) + "\t\t\t\t"+companyArray.get(i).dailyWage.get(j));
+            for (int j = 0; j < companyArray.get(i).dailyWage.size(); j++) {
+                System.out.println("Day: " + j + "\t\t" + (companyArray.get(i).dailyWage.get(j) - oldWage) + "\t\t\t\t" + companyArray.get(i).dailyWage.get(j));
                 oldWage = companyArray.get(i).dailyWage.get(j);
             }
             System.out.println("______________________________________");
         }
+        wagePerCompany();
     }
 }

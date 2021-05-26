@@ -9,6 +9,7 @@ public class EmpWageComputationMain {
         empWageComputation.addCompanyEmployee("Capgemini",20,2,50);
         empWageComputation.addCompanyEmployee("Barclays", 10, 4,100);
         empWageComputation.getCalculationDailyWage();
+
     }
 
 
