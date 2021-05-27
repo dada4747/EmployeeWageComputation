@@ -6,11 +6,12 @@ public class EmpWageComputationImpl implements EmpWageInterface {
     public static int empHours = 0;
     private int numOfCompany = 0;
     private ArrayList<Company> companyArray;
-    private Map<String, Integer> companyWageMap;
+    HashMap<String, Integer> companyWageMap;
+   // private Map<String, Integer> companyWageMap;
     //Constructor Of Class
     public EmpWageComputationImpl(){
         companyArray = new ArrayList<Company>();
-        companyWageMap = new HashMap<>();
+        companyWageMap = new HashMap<String, Integer>();
         wagePerCompany();
     }
     //Method for add companies
@@ -56,13 +57,13 @@ public class EmpWageComputationImpl implements EmpWageInterface {
     }
     //method for get total wage by company
     public void wagePerCompany(){
-        Set<Entry<String, Integer>> set = companyWageMap.entrySet();
-        Iterator itr = set.iterator();
-        while(itr.hasNext())
-        {
-            Map.Entry entry = (Map.Entry)itr.next();
-            System.out.println("Company:"+entry.getKey() + ":" + entry.getValue());
+
+        Iterator itr=companyWageMap.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry record=(Map.Entry)itr.next();  //will give next (Key, Value) pair
+            System.out.println(record.getKey() + " " + record.getValue());
         }
+
     }
     //method for clculate the result and get the output
     public void getCalculationDailyWage() {
